@@ -19,7 +19,7 @@ function onSearch(e) {
     photosApiService.resetPage();
     photosApiService.fetchPhotos().then(hits => {
         clearHitsContainer();
-        refs.loadMoreBtn.classList.add('is-hidden');
+        
         appendHitsMarkup(hits);        
     });    
 }
@@ -30,7 +30,7 @@ function onLoadMore() {
 
 function appendHitsMarkup(hits) {
     refs.photoContainer.insertAdjacentHTML('beforeend', photoCard(hits));
-    refs.loadMoreBtn.classList.remove('is-hidden');
+    
 }
 
 function clearHitsContainer() {

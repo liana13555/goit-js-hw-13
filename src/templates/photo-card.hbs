@@ -1,7 +1,8 @@
 {{#each this}}
 <div class="photo-card">
-    <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" width="340px" height="220px" />
-
+    <a href="{{largeImageURL}}">
+            <img src="{{webformatURL}}" alt="{{tags}}" loading="lazy" width="340px" height="220px" />
+    </a>
     <div class="info">
         <p class="info-item">
             <b>Likes </b> <span class="" >{{likes}}</span> 

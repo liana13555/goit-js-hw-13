@@ -8,14 +8,15 @@ export default class PhotosApiService {
     constructor() {
         this.searchRequest = '';
         this.page = 1;
+        this.per_page = 4;
     }
 
     async fetchPhotos() {
-        const url = `${BASE_URL}?key=${API_KEY}&q=${this.searchRequest}&image_type=photo&orientation=horizontal&safesearch=true&per_page=3&page=${this.page}`;
+        const url = `${BASE_URL}?key=${API_KEY}&q=${this.searchRequest}&image_type=photo&orientation=horizontal&safesearch=true&per_page=${this.per_page}&page=${this.page}`;
 
         const response = await axios.get(url);
         this.incrementPage();
-        return response.data.hits;  
+        return response.data;  
         
         // return fetch(url)
             // .then(response => response.json())

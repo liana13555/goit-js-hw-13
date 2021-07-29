@@ -6,6 +6,7 @@ import Notiflix from "notiflix";
 import SimpleLightbox from "simplelightbox";
 import '../node_modules/simplelightbox/src/simple-lightbox.scss';
 
+
 const refs = getRefs();
 const photosApiService = new PhotosApiService();
 const lightbox = new SimpleLightbox('.photo-card a');
@@ -27,8 +28,7 @@ async function onSearch(e) {
     try {
         const response = await photosApiService.fetchPhotos();
         appendHitsMarkup(response.hits);
-        lightbox.refresh();
-        
+                
            if (response.totalHits > photosApiService.per_page ) {
                getSuccessMessage(`"Hooray! We found ${response.totalHits} images."`);
                refs.loadMoreBtn.classList.remove('is-hidden');
@@ -46,9 +46,9 @@ async function onSearch(e) {
 async function onLoadMore() {
     try {
         const response = await photosApiService.fetchPhotos();
+        appendHitsMarkup(response.hits);    
         lightbox.refresh();
-        return appendHitsMarkup(response.hits);
-        
+
     } catch (error) {
         console.log(error);
     }
@@ -56,7 +56,8 @@ async function onLoadMore() {
 }
 
 function appendHitsMarkup(hits) {
-    refs.photoContainer.insertAdjacentHTML('beforeend', photoCard(hits));    
+    refs.photoContainer.insertAdjacentHTML('beforeend', photoCard(hits));
+    lightbox.refresh();
 }
 
 function clearHitsContainer() {

@@ -14,7 +14,6 @@ body {
 img {
   display: block;
   max-width: 100%;
-  margin-right: 20px;
   object-fit: cover;
 }
 
@@ -26,30 +25,54 @@ img {
   background-color: rgb(122, 122, 206);
 }
 
+input {
+  outline: none;
+}
+
 .button {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
 
-.is-hidden {
-  display: none;
-}
-
 .gallery {
     display: flex;
     flex-wrap: wrap; 
-    margin-left: 20px;       
+    margin-left: 20px;
 }
 
 .info {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around
+    justify-content: space-around;
+    text-align: center;  
 }
 
 .info-item {
     display: flex;
+    flex-direction: column;     
+}
+
+.photo-card {
+    display: flex;
     flex-direction: column;
-    align-items: center;   
+    margin-left: 10px;
+    margin-top: 10px;
+    border: 1px solid #EEEEEE;
+}
+
+.load-more {
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+  background-color: rgb(122, 122, 206);
+
+  font-size: 16px;    
+  border: transparent;
+  border-radius: 4px;  
+}
+
+.is-hidden {
+  display: none;
 }
